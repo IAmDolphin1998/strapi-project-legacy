@@ -13,6 +13,7 @@ env_variables:
   DATABASE_USERNAME: 'postgres'
   DATABASE_PASSWORD: 'n}iUs~SB[7Pmr}GO'
   DATABASE_SSL: 'true'
+  DATABASE_CA_SECRET_NAME: 'projects/925437110000/secrets/prod-postgresql-cert'
   GCS_BUCKET_NAME: 'strapi-cms-gcs'
   GCS_BASE_PATH: 'uploads'
   ALGOLIA_ADMIN_KEY: '8d4877c470e54da264b55789dd4f0909'

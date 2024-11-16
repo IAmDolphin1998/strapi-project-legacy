@@ -1,7 +1,23 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
 
-export default ({ env }) => {
+const client = new SecretManagerServiceClient();
+
+async function accessSecret(secretName: string) {
+  const [accessResponse] = await client.accessSecretVersion({
+    name: secretName,
+  });
+
+  const responsePayload = accessResponse.payload.data.toString();
+  if (!responsePayload) {
+    throw new Error(`Failed to retrieve secret: ${secretName}`);
+  }
+
+  return responsePayload
+}
+
+export default async ({ env }) => {
+  const cacert = await accessSecret(env('DATABASE_CA_SECRET_NAME'));
+
   return {
     connection: {
       client: 'postgres',
@@ -16,7 +32,7 @@ export default ({ env }) => {
           ssl: env.bool('DATABASE_SSL', false) && {
             key: env('DATABASE_SSL_KEY', undefined),
             cert: env('DATABASE_SSL_CERT', undefined),
-            ca: fs.readFileSync(env('DATABASE_CA_PATH', path.resolve(__dirname, '../../certs/prod-postgresql-cert.pem'))).toString(),
+            ca: cacert,
             capath: env('DATABASE_SSL_CAPATH', undefined),
             cipher: env('DATABASE_SSL_CIPHER', undefined),
             rejectUnauthorized: env.bool(
