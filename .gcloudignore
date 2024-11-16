@@ -1,0 +1,9 @@
+# Git
+.gcloudignore
+.git
+.gitignore
+
+# Node
+node_modules/
+!.env
+package-lock.json

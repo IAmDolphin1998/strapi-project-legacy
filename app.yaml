@@ -1,0 +1,20 @@
+runtime: nodejs20
+instance_class: B4
+
+env_variables:
+  HOST: '0.0.0.0'
+  NODE_ENV: 'production'
+  DATABASE_HOST: '/cloudsql/learned-falcon-441208-g4:europe-west3:strapi'
+  DATABASE_NAME: 'strapi'
+  DATABASE_USERNAME: 'postgres'
+  DATABASE_PASSWORD: 'g_}#~EG><6,uM%cY'
+  DATABASE_SSL: 'true'
+  DATABASE_CA_PATH: '/config/certs/prod-postgresql-cert.pem'
+  GCS_BUCKET_NAME: 'unipaper-gcp'
+  GCS_BASE_PATH: 'uploads'
+  ALGOLIA_ADMIN_KEY: '8d4877c470e54da264b55789dd4f0909'
+  ALGOLIA_APP_ID: 'V1O1Y893BB'
+  CSP_URLS_TRUSTED: 'loremflickr.com,storage.googleapis.com'
+
+beta_settings:
+  cloud_sql_instances: 'learned-falcon-441208-g4:europe-west3:strapi'
