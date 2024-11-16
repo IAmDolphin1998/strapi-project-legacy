@@ -8,8 +8,8 @@ export default ({env}) => [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "img-src": ["'self'", "data:", "blob:"].concat(env.array('URL_TRUSTED', [])),
-          "media-src": ["'self'", "data:", "blob:"].concat(env.array('URL_TRUSTED', [])),
+          "img-src": ["'self'", "data:", "blob:"].concat(env.array('CSP_URLS_TRUSTED', [])),
+          "media-src": ["'self'", "data:", "blob:"].concat(env.array('CSP_URLS_TRUSTED', [])),
           upgradeInsecureRequests: null,
         },
       },
