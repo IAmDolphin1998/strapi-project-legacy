@@ -16,7 +16,7 @@ export default ({ env }) => {
           ssl: env.bool('DATABASE_SSL', false) && {
             key: env('DATABASE_SSL_KEY', undefined),
             cert: env('DATABASE_SSL_CERT', undefined),
-            ca: fs.readFileSync(env('DATABASE_CA_PATH', path.resolve(__dirname, '../../certs/postgresql-cert.pem'))).toString(),
+            ca: fs.readFileSync(env('DATABASE_CA_PATH', path.resolve(__dirname, '../../certs/prod-postgresql-cert.pem'))).toString(),
             capath: env('DATABASE_SSL_CAPATH', undefined),
             cipher: env('DATABASE_SSL_CIPHER', undefined),
             rejectUnauthorized: env.bool(
