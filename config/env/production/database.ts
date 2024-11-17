@@ -3,16 +3,20 @@ import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
 const client = new SecretManagerServiceClient();
 
 async function accessSecret(secretName: string) {
-  const [accessResponse] = await client.accessSecretVersion({
-    name: secretName,
-  });
-
-  const responsePayload = accessResponse.payload.data.toString();
-  if (!responsePayload) {
-    throw new Error(`Failed to retrieve secret: ${secretName}`);
+  try {
+    const [accessResponse] = await client.accessSecretVersion({
+      name: secretName,
+    });
+  
+    const responsePayload = accessResponse.payload.data.toString();
+    if (!responsePayload) {
+      throw new Error('Secret payload is empty');
+    }
+  
+    return responsePayload
+  } catch (error) {
+    throw new Error(`Failed to access secret: ${error}`);
   }
-
-  return responsePayload
 }
 
 export default async ({ env }) => {
