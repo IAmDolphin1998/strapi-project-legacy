@@ -22,7 +22,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
-    "strapi-plugin-generate-data": "^1.0.32",
     "strapi-plugin-strapi-algolia": "^1.8.0",
     "styled-components": "5.3.3"
   },
