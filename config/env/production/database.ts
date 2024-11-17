@@ -1,27 +1,4 @@
-import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
-
-const client = new SecretManagerServiceClient();
-
-async function accessSecret(secretName: string) {
-  try {
-    const [accessResponse] = await client.accessSecretVersion({
-      name: secretName,
-    });
-  
-    const responsePayload = accessResponse.payload.data.toString();
-    if (!responsePayload) {
-      throw new Error('Secret payload is empty');
-    }
-  
-    return responsePayload
-  } catch (error) {
-    throw new Error(`Failed to access secret: ${error}`);
-  }
-}
-
-export default async ({ env }) => {
-  const cacert = await accessSecret(env('DATABASE_CA_SECRET_NAME'));
-
+export default ({ env }) => {
   return {
     connection: {
       client: 'postgres',
@@ -34,7 +11,7 @@ export default async ({ env }) => {
         password: env('DATABASE_PASSWORD', 'strapi'),
         schema: env('DATABASE_SCHEMA', 'public'),
         ssl: env.bool('DATABASE_SSL', false) && {
-          ca: cacert,
+          ca: env('DATABASE_CA', ''),
           rejectUnauthorized: env.bool(
             'DATABASE_SSL_REJECT_UNAUTHORIZED',
             true
