@@ -12,6 +12,7 @@ env_variables:
   HOST: 0.0.0.0
   APP_KEYS: zclqmd81TYArkTlcOgLdSw==,VucNJCfp292LX7XZrHj60g==,Il2ySSwWFC4iVj9BY5fNVQ==,5HAFX0We0NKfHUdnYGkcoA==
   API_TOKEN_SALT: p/mLAtY2fAi9uhMoRhlWmg==
+  JWT_SECRET: whqxVEeq+iPVIoF8QRsVjA==
   ADMIN_JWT_SECRET: vYwVhPgDuHVKBWoVbK0lCQ==
   TRANSFER_TOKEN_SALT: Lya3JgSvRChuB6JeSsu60w==
   CSP_URLS_TRUSTED: storage.googleapis.com
