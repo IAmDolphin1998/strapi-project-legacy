@@ -6,19 +6,31 @@ basic_scaling:
   idle_timeout: 10m
 
 env_variables:
-  HOST: '0.0.0.0'
-  NODE_ENV: 'production'
-  DATABASE_HOST: '/cloudsql/strapi-cms-441915:us-central1:strapi'
-  DATABASE_NAME: 'strapi'
-  DATABASE_USERNAME: 'postgres'
-  DATABASE_PASSWORD: 'n}iUs~SB[7Pmr}GO'
-  DATABASE_SSL: 'true'
-  DATABASE_CA_SECRET_NAME: 'projects/925437110000/secrets/prod-postgresql-cert/versions/1'
-  GCS_BUCKET_NAME: 'strapi-cms-gcs'
-  GCS_BASE_PATH: 'uploads'
-  ALGOLIA_ADMIN_KEY: '8d4877c470e54da264b55789dd4f0909'
-  ALGOLIA_APP_ID: 'V1O1Y893BB'
-  CSP_URLS_TRUSTED: 'storage.googleapis.com'
+  NODE_ENV: production
+  
+  # Application
+  HOST: 0.0.0.0
+  APP_KEYS: zclqmd81TYArkTlcOgLdSw==,VucNJCfp292LX7XZrHj60g==,Il2ySSwWFC4iVj9BY5fNVQ==,5HAFX0We0NKfHUdnYGkcoA==
+  API_TOKEN_SALT: p/mLAtY2fAi9uhMoRhlWmg==
+  ADMIN_JWT_SECRET: vYwVhPgDuHVKBWoVbK0lCQ==
+  TRANSFER_TOKEN_SALT: Lya3JgSvRChuB6JeSsu60w==
+  CSP_URLS_TRUSTED: storage.googleapis.com
+
+  # Database
+  DATABASE_HOST: /cloudsql/strapi-cms-441915:us-central1:strapi
+  DATABASE_NAME: strapi
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: n}iUs~SB[7Pmr}GO
+  DATABASE_SSL: true
+  DATABASE_CA_SECRET_NAME: projects/925437110000/secrets/prod-postgresql-cert/versions/1
+  
+  # Google Cloud Storage
+  GCS_BUCKET_NAME: strapi-cms-gcs
+  GCS_BASE_PATH: uploads
+  
+  # Algolia
+  ALGOLIA_ADMIN_KEY: 8d4877c470e54da264b55789dd4f0909
+  ALGOLIA_APP_ID: V1O1Y893BB
 
 beta_settings:
   cloud_sql_instances: 'strapi-cms-441915:us-central1:strapi'
