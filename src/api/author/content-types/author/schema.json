@@ -12,13 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "FirstName": {
+    "Name": {
       "type": "string",
-      "required": true
-    },
-    "LastName": {
-      "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "Documents": {
       "type": "relation",
@@ -30,11 +27,12 @@
       "type": "email"
     },
     "Avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

@@ -794,12 +794,13 @@ export interface ApiAreaArea extends Schema.CollectionType {
     singularName: 'area';
     pluralName: 'areas';
     displayName: 'Area';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
+    Name: Attribute.String & Attribute.Required & Attribute.Unique;
     Documents: Attribute.Relation<
       'api::area.area',
       'oneToMany',
@@ -827,8 +828,7 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    FirstName: Attribute.String & Attribute.Required;
-    LastName: Attribute.String & Attribute.Required;
+    Name: Attribute.String & Attribute.Required & Attribute.Unique;
     Documents: Attribute.Relation<
       'api::author.author',
       'manyToMany',
@@ -909,12 +909,13 @@ export interface ApiTagTag extends Schema.CollectionType {
     singularName: 'tag';
     pluralName: 'tags';
     displayName: 'Tag';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
+    Name: Attribute.String & Attribute.Required & Attribute.Unique;
     Documents: Attribute.Relation<
       'api::tag.tag',
       'manyToMany',

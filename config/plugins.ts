@@ -10,7 +10,7 @@ export default ({ env }) => ({
           index: "document_index",
           populate: {
             Authors: {
-              fields: ["FirstName", "LastName", "Email"],
+              fields: ["Name", "Email"],
               populate: {
                 Avatar: {
                   fields: ["url", "alternativeText", "width", "height"],
