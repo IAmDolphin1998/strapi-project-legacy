@@ -799,6 +799,11 @@ export interface ApiAreaArea extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'import-export-entries': {
+      idField: 'Name';
+    };
+  };
   attributes: {
     Name: Attribute.String & Attribute.Required & Attribute.Unique;
     Documents: Attribute.Relation<
@@ -826,6 +831,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'import-export-entries': {
+      idField: 'Name';
+    };
   };
   attributes: {
     Name: Attribute.String & Attribute.Required & Attribute.Unique;
@@ -864,6 +874,11 @@ export interface ApiDocumentDocument extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'import-export-entries': {
+      idField: 'Title';
+    };
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
@@ -913,6 +928,11 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'import-export-entries': {
+      idField: 'Name';
+    };
   };
   attributes: {
     Name: Attribute.String & Attribute.Required & Attribute.Unique;
